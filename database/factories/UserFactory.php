@@ -23,15 +23,29 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        // Generate realistic registration date (within last 6 months)
+        $registrationDate = fake()->dateTimeBetween('-6 months', '-1 day');
+        
+        // Generate last login (usually after registration, within last month)
+        $lastLogin = fake()->boolean(70) ? 
+            fake()->dateTimeBetween($registrationDate->format('Y-m-d H:i:s'), 'now') : 
+            null;
+        
         return [
             'username' => fake()->unique()->userName(),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'email_verified_at' => fake()->boolean(85) ? 
+                fake()->dateTimeBetween($registrationDate->format('Y-m-d H:i:s'), 'now') : 
+                null,
             'password' => static::$password ??= Hash::make('password'),
             'is_active' => fake()->boolean(90), // 90% chance of being active
-            'last_login' => fake()->optional()->dateTimeBetween('-1 month', 'now'),
+            'last_login' => $lastLogin,
             'remember_token' => Str::random(10),
+            'created_at' => $registrationDate,
+            'updated_at' => fake()->boolean(30) ? 
+                fake()->dateTimeBetween($registrationDate->format('Y-m-d H:i:s'), 'now') : 
+                $registrationDate,
         ];
     }
 

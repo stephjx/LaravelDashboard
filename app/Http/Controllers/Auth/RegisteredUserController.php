@@ -41,6 +41,9 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'is_active' => true,
+            'email_verified_at' => fake()->boolean(80) ? now() : null, // 80% chance of immediate verification
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         event(new Registered($user));
