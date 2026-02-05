@@ -17,12 +17,12 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen">
+    <body class="font-sans antialiased hide-scrollbar">
+        <div class="min-h-screen hide-scrollbar">
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main>
+            <main class="hide-scrollbar">
                 {{ $slot }}
             </main>
         </div>

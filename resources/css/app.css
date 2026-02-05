@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide scrollbar while maintaining ALL scroll functionality including touchpad */
+html {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+html::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari, Opera */
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for all scrollable elements but keep ALL functionality */
+.scrollable,
+.overflow-auto,
+.overflow-y-auto,
+.overflow-x-auto,
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollable::-webkit-scrollbar,
+.overflow-auto::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cute Big Polar Bear Animation */
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.polar-bear {
+    animation: gentle-bounce 2s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.polar-bear:hover {
+    transform: scale(1.15) translateY(-8px);
+}
+
+.polar-bear-container {
+    transition: transform 0.3s ease;
+}
+
+.polar-bear-container:hover {
+    transform: scale(1.1);
+}
