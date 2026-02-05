@@ -99,7 +99,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 sm:px-6 lg:px-8">
                 <!-- Professional User Info Card -->
-                <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm group">
                     <div class="flex items-center mb-6">
                         <div class="p-3 bg-gray-100 rounded-lg mr-3">
                             <i class="fas fa-id-card text-gray-600 text-xl"></i>
@@ -108,33 +108,33 @@
                     </div>
                     
                     <div class="space-y-4">
-                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100">
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md">
                             <div class="flex items-center">
-                                <i class="fas fa-user-circle text-gray-500 mr-3"></i>
+                                <i class="fas fa-user-circle text-gray-500 mr-3 transition-colors duration-300 group-hover:text-blue-600"></i>
                                 <span class="text-gray-600 font-medium">Username:</span>
                             </div>
                             <span class="text-gray-800 font-semibold">{{ $user->username }}</span>
                         </div>
                         
-                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100">
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md">
                             <div class="flex items-center">
-                                <i class="fas fa-signature text-gray-500 mr-3"></i>
+                                <i class="fas fa-signature text-gray-500 mr-3 transition-colors duration-300 group-hover:text-blue-600"></i>
                                 <span class="text-gray-600 font-medium">Name:</span>
                             </div>
                             <span class="text-gray-800 font-semibold">{{ $user->name }}</span>
                         </div>
                         
-                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100">
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md">
                             <div class="flex items-center">
-                                <i class="fas fa-envelope text-gray-500 mr-3"></i>
+                                <i class="fas fa-envelope text-gray-500 mr-3 transition-colors duration-300 group-hover:text-blue-600"></i>
                                 <span class="text-gray-600 font-medium">Email:</span>
                             </div>
                             <span class="text-gray-800 font-semibold">{{ $user->email }}</span>
                         </div>
                         
-                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100">
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md">
                             <div class="flex items-center">
-                                <i class="fas fa-power-off text-gray-500 mr-3"></i>
+                                <i class="fas fa-power-off text-gray-500 mr-3 transition-colors duration-300 group-hover:text-blue-600"></i>
                                 <span class="text-gray-600 font-medium">Status:</span>
                             </div>
                             <span class="px-3 py-1 rounded-full text-sm font-semibold 

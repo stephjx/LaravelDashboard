@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    color: #4b5563 !important; /* text-gray-700 */
+    background-color: #ffffff !important; /* white background */
+    border-color: #d1d5db !important; /* gray-300 border */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    background-color: #ffffff !important; /* keep white when focused */
+    border-color: #3b82f6 !important; /* blue-500 focus border */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important; /* blue focus ring */
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #9ca3af !important; /* placeholder-gray-400 */
+}
+
 /* Hide scrollbar while maintaining ALL scroll functionality including touchpad */
 html {
     -ms-overflow-style: none;  /* IE and Edge */
