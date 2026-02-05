@@ -36,9 +36,11 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
+            'username' => $this->generateUsername($request->name),
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'is_active' => true,
         ]);
 
         event(new Registered($user));
@@ -46,5 +48,28 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
+    }
+
+    /**
+     * Generate a unique username from the user's name.
+     *
+     * @param string $name
+     * @return string
+     */
+    private function generateUsername(string $name): string
+    {
+        // Convert name to lowercase and remove spaces
+        $username = strtolower(str_replace(' ', '', $name));
+        
+        // Ensure username is unique
+        $originalUsername = $username;
+        $counter = 1;
+        
+        while (User::where('username', $username)->exists()) {
+            $username = $originalUsername . $counter;
+            $counter++;
+        }
+        
+        return $username;
     }
 }
