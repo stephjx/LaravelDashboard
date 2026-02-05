@@ -143,7 +143,7 @@
                         <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                             <i class="fas fa-users text-3xl text-white"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-800 mb-2">100+</h3>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-2">{{ $userCount }}</h3>
                         <p class="text-gray-600 font-bold text-lg mb-1">Total Users</p>
                         <p class="text-sm text-gray-500">In our system</p>
                         <div class="mt-3 w-full bg-gray-200 rounded-full h-2">
@@ -159,9 +159,9 @@
                         <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                             <i class="fas fa-shield-alt text-3xl text-white"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-800 mb-2 text-green-600">Secure</h3>
-                        <p class="text-gray-600 font-bold text-lg mb-1">Security Status</p>
-                        <p class="text-sm text-gray-500">End-to-end encrypted</p>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-2 text-green-600">{{ $activeUsers }}</h3>
+                        <p class="text-gray-600 font-bold text-lg mb-1">Active Users</p>
+                        <p class="text-sm text-gray-500">Currently online</p>
                         <div class="mt-3 flex justify-center space-x-1">
                             <div class="w-3 h-3 bg-green-500 rounded-full animate-bounce"></div>
                             <div class="w-3 h-3 bg-green-500 rounded-full animate-bounce animation-delay-200"></div>
@@ -177,9 +177,9 @@
                         <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                             <i class="fas fa-sync-alt text-3xl text-white animate-spin"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-800 mb-2 text-purple-600">Live</h3>
-                        <p class="text-gray-600 font-bold text-lg mb-1">System Status</p>
-                        <p class="text-sm text-gray-500">Real-time monitoring</p>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-2 text-purple-600">{{ $recentLogins }}</h3>
+                        <p class="text-gray-600 font-bold text-lg mb-1">Recent Logins</p>
+                        <p class="text-sm text-gray-500">Last 7 days</p>
                         <div class="mt-3 flex items-center justify-center text-xs text-purple-600 font-bold">
                             <div class="w-2 h-2 bg-purple-500 rounded-full mr-2 animate-ping"></div>
                             ONLINE
