@@ -41,6 +41,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'is_active' => true,
+            'last_login' => now(), // Set last_login to current time for new registration
             'email_verified_at' => fake()->boolean(80) ? now() : null, // 80% chance of immediate verification
             'created_at' => now(),
             'updated_at' => now(),
@@ -49,6 +50,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        // Update last_login timestamp after successful login
+        $user->update(['last_login' => now()]);
 
         return redirect(route('dashboard', absolute: false));
     }

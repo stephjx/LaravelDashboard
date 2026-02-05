@@ -172,14 +172,21 @@
                         <div class="flex items-start">
                             <i class="fas fa-info-circle text-blue-500 mt-1 mr-3"></i>
                             <div>
-                                <p class="text-blue-800 font-semibold mb-1">Login History</p>
-                                <p class="text-sm text-gray-600">
-                                    @if($user->last_login)
-                                        Last login: <span class="font-semibold text-blue-600">{{ $user->last_login->format('M d, Y \a\t g:i A') }}</span>
+                                <p class="text-blue-800 font-semibold mb-1">Account Information</p>
+                                <div class="space-y-2 text-sm text-gray-600">
+                                    @php
+                                        $isFirstLogin = !$user->last_login || 
+                                                       ($user->wasRecentlyCreated && $user->last_login->diffInSeconds($user->created_at) < 300);
+                                    @endphp
+                                    
+                                    @if(!$isFirstLogin)
+                                        <p>Last login: <span class="font-semibold text-blue-600">{{ $user->last_login->format('M d, Y \a\t g:i A') }}</span></p>
                                     @else
-                                        <span class="text-gray-500 italic">First time logging in! Welcome aboard!</span>
+                                        <p><span class="text-gray-500 italic">First time logging in! Welcome aboard!</span></p>
                                     @endif
-                                </p>
+                                    <p>Account created: <span class="font-medium text-gray-700">{{ $user->created_at->format('M d, Y \a\t g:i A') }}</span></p>
+                                    <p>Last updated: <span class="font-medium text-gray-700">{{ $user->updated_at->format('M d, Y \a\t g:i A') }}</span></p>
+                                </div>
                             </div>
                         </div>
                     </div>

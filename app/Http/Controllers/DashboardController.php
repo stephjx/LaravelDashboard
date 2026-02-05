@@ -16,8 +16,17 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         
-        // Update last_login timestamp
-        $user->update(['last_login' => now()]);
+        // Force fresh data from database to see actual timestamps
+        $user->refresh();
+        
+        // Only update last_login if this is the user's first visit to dashboard after login
+        // or if last_login is null (first-time user)
+        $lastLogin = $user->last_login;
+        if (!$lastLogin || (is_object($lastLogin) && $lastLogin->diffInMinutes(now()) > 30)) {
+            $user->update(['last_login' => now()]);
+            // Refresh again to get the updated timestamp
+            $user->refresh();
+        }
         
         // Get actual user count
         $userCount = \App\Models\User::count();
