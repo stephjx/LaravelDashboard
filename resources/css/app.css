@@ -25,6 +25,15 @@ input[type="password"]::placeholder {
     color: #9ca3af !important; /* placeholder-gray-400 */
 }
 
+/* Ensure guest layout has proper background */
+body {
+    background-color: #f9fafb !important;
+}
+
+x-guest-layout {
+    background-color: #f9fafb !important;
+}
+
 /* Hide scrollbar while maintaining ALL scroll functionality including touchpad */
 html {
     -ms-overflow-style: none;  /* IE and Edge */
