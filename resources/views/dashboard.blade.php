@@ -6,22 +6,22 @@
     </x-slot>
 
     <!-- Blue Gradient Background -->
-    <div class="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 py-12 px-4 sm:px-6 lg:px-8" style="background: linear-gradient(to bottom right, #60a5fa, #3b82f6, #2563eb);">
-        <div class="max-w-4xl mx-auto">
+    <div class="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 py-8 px-4 sm:px-6 lg:px-8" style="background: linear-gradient(to bottom right, #60a5fa, #3b82f6, #2563eb);">
+        <div class="max-w-none mx-0 w-full">
             <!-- Welcome Card -->
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-8 transform transition-all hover:scale-[1.02] duration-300">
-                <div class="bg-gradient-to-r from-blue-600 to-blue-800 px-8 py-10 text-white text-center">
+                <div class="bg-gradient-to-r from-blue-600 to-blue-800 px-6 sm:px-8 md:px-12 py-8 sm:py-10 text-white text-center">
                     <div class="flex justify-center mb-4">
-                        <div class="bg-white/20 p-4 rounded-full">
-                            <i class="fas fa-user-circle text-4xl"></i>
+                        <div class="bg-white/20 p-3 sm:p-4 rounded-full">
+                            <i class="fas fa-user-circle text-3xl sm:text-4xl"></i>
                         </div>
                     </div>
-                    <h1 class="text-3xl font-bold mb-2">Welcome, {{ $user->name }}!</h1>
-                    <p class="text-blue-100 text-lg">You're successfully logged into your dashboard</p>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Welcome, {{ $user->name }}!</h1>
+                    <p class="text-blue-100 text-base sm:text-lg">You're successfully logged into your dashboard</p>
                 </div>
                 
-                <div class="p-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 sm:p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                         <!-- User Info Card -->
                         <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
                             <h3 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
@@ -85,7 +85,7 @@
             </div>
 
             <!-- Stats Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8">
                 <!-- Total Users -->
                 <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 transform transition-all hover:-translate-y-1 hover:shadow-xl duration-300">
                     <div class="text-center">
