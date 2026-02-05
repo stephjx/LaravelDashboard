@@ -29,10 +29,10 @@
                     </div>
                     
                     <div class="relative z-10">
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-                            Welcome, <span class="animate-pulse">{{ $user->name }}</span>!
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-white drop-shadow-lg">
+                            Welcome, <span class="font-extrabold animate-pulse">{{ $user->name }}</span>!
                         </h1>
-                        <p class="text-blue-100 text-lg sm:text-xl mb-4">You're successfully logged into your premium dashboard</p>
+                        <p class="text-blue-50 text-lg sm:text-xl mb-4 font-medium">You're successfully logged into your premium dashboard</p>
                         
                         <!-- Interactive Status Badge -->
                         <div class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 animate-pulse">
@@ -59,7 +59,7 @@
                                         <i class="fas fa-user-circle text-blue-500 mr-3"></i>
                                         <span class="text-blue-600 font-medium">Username:</span>
                                     </div>
-                                    <span class="text-gray-700 font-semibold">{{ $user->username }}</span>
+                                    <span class="text-gray-800 font-bold">{{ $user->username }}</span>
                                 </div>
                                 
                                 <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-blue-100 hover:bg-blue-50 transition-colors duration-200">
@@ -67,7 +67,7 @@
                                         <i class="fas fa-signature text-blue-500 mr-3"></i>
                                         <span class="text-blue-600 font-medium">Name:</span>
                                     </div>
-                                    <span class="text-gray-700 font-semibold">{{ $user->name }}</span>
+                                    <span class="text-gray-800 font-bold text-lg">{{ $user->name }}</span>
                                 </div>
                                 
                                 <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-blue-100 hover:bg-blue-50 transition-colors duration-200">

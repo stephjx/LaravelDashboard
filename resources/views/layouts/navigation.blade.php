@@ -13,7 +13,7 @@
                 <div class="shrink-0 flex items-center mr-8">
                     <a href="{{ route('dashboard') }}" class="text-white text-2xl font-bold flex items-center group">
                         <i class="fas fa-chart-network mr-3 text-yellow-300 group-hover:rotate-12 transition-transform duration-300"></i>
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">Dashboard Pro</span>
+                        <span class="text-white font-bold drop-shadow-lg">Dashboard Pro</span>
                     </a>
                 </div>
 
@@ -35,7 +35,7 @@
                                 <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-2">
                                     <i class="fas fa-user text-white"></i>
                                 </div>
-                                <span>{{ Auth::user()->name }}</span>
+                                <span class="font-bold">{{ Auth::user()->name }}</span>
                             </div>
                             <div>
                                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300 group-hover:rotate-180"></i>
@@ -89,7 +89,7 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-blue-600">
             <div class="px-4 py-4 bg-blue-600/50 backdrop-blur-sm">
-                <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
+                <div class="font-bold text-lg text-white">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-blue-200">{{ Auth::user()->email }}</div>
             </div>
 
