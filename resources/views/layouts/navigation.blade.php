@@ -1,4 +1,5 @@
 <nav x-data="{ open: false }" class="bg-gradient-to-r from-blue-500 to-blue-600 border-b border-blue-600 shadow-md sticky top-0 z-50">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -45,13 +46,13 @@
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('logout') }}" id="logout-form">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();" 
-                                    class="hover:bg-red-50 text-red-600 hover:text-red-700 transition-colors duration-200 flex items-center">
+                                                showLogoutConfirmation();" 
+                                    class="hover:bg-red-50 text-red-600 hover:text-red-700 transition-colors duration-200 flex items-center cursor-pointer">
                                 <i class="fas fa-sign-out-alt mr-3"></i>{{ __('Sign Out') }}
                             </x-dropdown-link>
                         </form>
@@ -87,17 +88,36 @@
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}" id="logout-form">
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
-                                        this.closest('form').submit();" 
-                            class="text-red-200 hover:text-red-100 hover:bg-red-700/30 pl-4 py-3 transition-all duration-200 flex items-center">
+                                        showLogoutConfirmation();" 
+                            class="text-red-200 hover:text-red-100 hover:bg-red-700/30 pl-4 py-3 transition-all duration-200 flex items-center cursor-pointer">
                         <i class="fas fa-sign-out-alt mr-3"></i>{{ __('Sign Out') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        function showLogoutConfirmation() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you really want to logout?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout me out!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Proceed with logout
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+    </script>
 </nav>

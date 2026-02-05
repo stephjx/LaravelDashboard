@@ -24,11 +24,23 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        \Log::info('Login attempt started');
+        \Log::info('Request data: ' . json_encode($request->all()));
+        
+        try {
+            $request->authenticate();
+            \Log::info('Authentication successful');
 
-        $request->session()->regenerate();
+            $request->session()->regenerate();
+            \Log::info('Session regenerated');
 
-        return redirect()->intended(route('dashboard', absolute: false));
+            \Log::info('Login successful - redirecting with success parameter');
+
+            return redirect()->intended(route('dashboard', absolute: false) . '?auth_success=' . urlencode('Login successful! Welcome back!'));
+        } catch (\Exception $e) {
+            \Log::error('Login failed: ' . $e->getMessage());
+            throw $e;
+        }
     }
 
     /**
@@ -42,6 +54,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/?auth_success=' . urlencode('You have been logged out successfully!'));
     }
 }

@@ -14,8 +14,10 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body class="font-sans text-gray-900 antialiased">
+        
         <div class="min-h-screen flex">
             <!-- Left Panel - Welcome Animation -->
             <div class="flex-1 bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-8 lg:p-16 relative overflow-hidden">
@@ -34,7 +36,8 @@
                         </h1>
                         
                         <p class="text-2xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
-                            Your professional dashboard solution for seamless data management and analytics
+                            Laravel Migrations, Factories, Seeders, Routes,
+                            Views, and Authentication Scaffolding using Breeze
                         </p>
                     </div>
                     
@@ -48,19 +51,34 @@
                     <!-- Feature Highlights -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                         <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fas fa-shield-alt text-blue-600 text-2xl mb-3"></i>
-                            <h3 class="font-bold text-xl text-gray-800 mb-2">Secure Access</h3>
-                            <p class="text-gray-600">Enterprise-grade security with advanced encryption</p>
+                            <i class="fas fa-database text-blue-600 text-2xl mb-3"></i>
+                            <h3 class="font-bold text-xl text-gray-800 mb-2">Database Migrations</h3>
+                            <p class="text-gray-600">Modify database schema using Laravel migrations</p>
                         </div>
                         <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fas fa-bolt text-indigo-600 text-2xl mb-3"></i>
-                            <h3 class="font-bold text-xl text-gray-800 mb-2">Fast Performance</h3>
-                            <p class="text-gray-600">Optimized for lightning-fast data processing</p>
+                            <i class="fas fa-seedling text-green-600 text-2xl mb-3"></i>
+                            <h3 class="font-bold text-xl text-gray-800 mb-2">Data Population</h3>
+                            <p class="text-gray-600">Populate database tables using factories and seeders</p>
                         </div>
                         <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fas fa-chart-bar text-purple-600 text-2xl mb-3"></i>
-                            <h3 class="font-bold text-xl text-gray-800 mb-2">Real Analytics</h3>
-                            <p class="text-gray-600">Actionable insights with real-time reporting</p>
+                            <i class="fas fa-key text-indigo-600 text-2xl mb-3"></i>
+                            <h3 class="font-bold text-xl text-gray-800 mb-2">Authentication</h3>
+                            <p class="text-gray-600">Implement authentication using Laravel Breeze</p>
+                        </div>
+                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fas fa-directions text-orange-600 text-2xl mb-3"></i>
+                            <h3 class="font-bold text-xl text-gray-800 mb-2">Routing</h3>
+                            <p class="text-gray-600">Configure routes and redirects after authentication</p>
+                        </div>
+                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fas fa-desktop text-purple-600 text-2xl mb-3"></i>
+                            <h3 class="font-bold text-xl text-gray-800 mb-2">Dashboard</h3>
+                            <p class="text-gray-600">Design a basic dashboard view using a frontend template framework</p>
+                        </div>
+                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fas fa-graduation-cap text-red-600 text-2xl mb-3"></i>
+                            <h3 class="font-bold text-xl text-gray-800 mb-2">Project Description</h3>
+                            <p class="text-gray-600">Students are expected to demonstrate proper use of Laravel conventions and best practices.</p>
                         </div>
                     </div>
                 </div>
@@ -97,10 +115,19 @@
             </div>
 
             <!-- Session Status -->
-            <x-auth-session-status class="mb-2" :status="session('status')" />
+            <x-auth-session-status class="mb-2" :status="session('status')" data-session-status />
+            
+            <!-- Hidden inputs to pass success/failure status -->
+            @if(session('status'))
+                <input type="hidden" id="auth-success-message" value="{{ session('status') }}">
+            @endif
+            
+            @if($errors->any())
+                <input type="hidden" id="auth-error-message" value="{{ $errors->first() }}">
+            @endif
 
             <!-- Login Form -->
-            <div id="login-form" class="bg-white py-6 px-6 shadow-xl rounded-lg">
+            <div id="login-form" class="bg-white py-6 px-6 shadow-xl rounded-lg transition-all duration-300 ease-in-out" style="min-height: 420px;">
                 <form method="POST" action="{{ route('login') }}" class="space-y-4">
                     @csrf
                     
@@ -162,7 +189,7 @@
             </div>
 
             <!-- Register Form -->
-            <div id="register-form" class="bg-white py-6 px-6 shadow-xl rounded-lg hidden">
+            <div id="register-form" class="bg-white py-6 px-6 shadow-xl rounded-lg hidden transition-all duration-300 ease-in-out" style="min-height: 420px;">
                 <form method="POST" action="{{ route('register') }}" class="space-y-4">
                     @csrf
                     
@@ -253,6 +280,52 @@
     </div>
 
     <script>
+        // SweetAlert2 Notification Functions
+        function showSuccessAlert(message) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: message,
+                timer: 3000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                toast: true,
+                position: 'top-end'
+            });
+        }
+        
+        function showErrorAlert(message) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: message,
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: true,
+                confirmButtonText: 'OK'
+            });
+        }
+        
+        function showLogoutConfirmation() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you really want to logout?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout me out!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Proceed with logout
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+        
+        // Form submission handlers
+        // Both login and register forms use standard Laravel submission with session flashing for SweetAlert2 notifications
         function switchTab(tab) {
             const loginForm = document.getElementById('login-form');
             const registerForm = document.getElementById('register-form');
@@ -261,29 +334,52 @@
             const footerLogin = document.getElementById('footer-text-login');
             const footerRegister = document.getElementById('footer-text-register');
 
-            if (tab === 'login') {
-                loginForm.classList.remove('hidden');
-                registerForm.classList.add('hidden');
-                loginTab.classList.add('active-tab');
-                loginTab.classList.remove('inactive-tab');
-                registerTab.classList.add('inactive-tab');
-                registerTab.classList.remove('active-tab');
-                footerLogin.classList.remove('hidden');
-                footerLogin.classList.add('block');
-                footerRegister.classList.add('hidden');
-                footerRegister.classList.remove('block');
-            } else {
-                loginForm.classList.add('hidden');
-                registerForm.classList.remove('hidden');
-                loginTab.classList.add('inactive-tab');
-                loginTab.classList.remove('active-tab');
-                registerTab.classList.add('active-tab');
-                registerTab.classList.remove('inactive-tab');
-                footerLogin.classList.add('hidden');
-                footerLogin.classList.remove('block');
-                footerRegister.classList.remove('hidden');
-                footerRegister.classList.add('block');
-            }
+            // Add transition class for smooth animation
+            loginForm.classList.add('transition-opacity', 'duration-200');
+            registerForm.classList.add('transition-opacity', 'duration-200');
+
+            // Fade out both forms
+            loginForm.style.opacity = '0';
+            registerForm.style.opacity = '0';
+
+            // Reset tab states
+            loginTab.classList.remove('active-tab');
+            loginTab.classList.add('inactive-tab');
+            registerTab.classList.remove('active-tab');
+            registerTab.classList.add('inactive-tab');
+
+            // Hide footers
+            footerLogin.style.display = 'none';
+            footerRegister.style.display = 'none';
+
+            // Wait for fade out, then switch content
+            setTimeout(() => {
+                if (tab === 'login') {
+                    // Show login form
+                    loginForm.style.display = 'block';
+                    registerForm.style.display = 'none';
+                    
+                    loginTab.classList.remove('inactive-tab');
+                    loginTab.classList.add('active-tab');
+                    
+                    footerLogin.style.display = 'block';
+                } else {
+                    // Show register form
+                    registerForm.style.display = 'block';
+                    loginForm.style.display = 'none';
+                    
+                    registerTab.classList.remove('inactive-tab');
+                    registerTab.classList.add('active-tab');
+                    
+                    footerRegister.style.display = 'block';
+                }
+
+                // Fade in the active form
+                setTimeout(() => {
+                    loginForm.style.opacity = '1';
+                    registerForm.style.opacity = '1';
+                }, 50);
+            }, 200);
         }
 
         // Check for validation errors and switch to appropriate tab
@@ -291,9 +387,112 @@
             const loginErrors = document.querySelectorAll('#login-form .text-red-600');
             const registerErrors = document.querySelectorAll('#register-form .text-red-600');
             
+            // Check URL parameters first for auth messages
+            const urlParams = new URLSearchParams(window.location.search);
+            const successParam = urlParams.get('auth_success');
+            const errorParam = urlParams.get('auth_error');
+            
+            console.log('URL success param:', successParam);
+            console.log('URL error param:', errorParam);
+            
+            if (successParam) {
+                showSuccessAlert(decodeURIComponent(successParam));
+                // Remove the parameter from URL
+                urlParams.delete('auth_success');
+                const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
+                window.history.replaceState({}, document.title, newUrl);
+                return; // Don't check other sources if we have URL params
+            } else if (errorParam) {
+                showErrorAlert(decodeURIComponent(errorParam));
+                // Remove the parameter from URL
+                urlParams.delete('auth_error');
+                const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
+                window.history.replaceState({}, document.title, newUrl);
+                return; // Don't check other sources if we have URL params
+            }
+            
+            // Check for session status messages (fallback)
+            const sessionStatus = document.querySelector('[data-session-status]');
+            console.log('Session status element:', sessionStatus);
+            console.log('Session status text:', sessionStatus ? sessionStatus.textContent : 'No element found');
+            
+            // Also check for Laravel's default session status class
+            const defaultSessionStatus = document.querySelector('.alert-success, .alert-error, .text-success, .text-danger');
+            console.log('Default session status element:', defaultSessionStatus);
+            console.log('Default session status text:', defaultSessionStatus ? defaultSessionStatus.textContent : 'No element found');
+            
+            // Check for hidden input messages
+            const successMessageInput = document.getElementById('auth-success-message');
+            const errorMessageInput = document.getElementById('auth-error-message');
+            console.log('Success message input:', successMessageInput);
+            console.log('Error message input:', errorMessageInput);
+            console.log('Success message value:', successMessageInput ? successMessageInput.value : 'No input found');
+            console.log('Error message value:', errorMessageInput ? errorMessageInput.value : 'No input found');
+            
+            let message = '';
+            let isErrorMessage = false;
+            
+            if (sessionStatus && sessionStatus.textContent.trim()) {
+                message = sessionStatus.textContent.trim();
+                console.log('Using custom session message:', message);
+            } else if (defaultSessionStatus && defaultSessionStatus.textContent.trim()) {
+                message = defaultSessionStatus.textContent.trim();
+                console.log('Using default session message:', message);
+                isErrorMessage = defaultSessionStatus.classList.contains('alert-error') || defaultSessionStatus.classList.contains('text-danger');
+            } else if (successMessageInput && successMessageInput.value.trim()) {
+                message = successMessageInput.value.trim();
+                console.log('Using success input message:', message);
+            } else if (errorMessageInput && errorMessageInput.value.trim()) {
+                message = errorMessageInput.value.trim();
+                console.log('Using error input message:', message);
+                isErrorMessage = true;
+            }
+            
+            if (message) {
+                // Determine if it's success or error based on content
+                if (!isErrorMessage) {
+                    isErrorMessage = message.toLowerCase().includes('failed') || message.toLowerCase().includes('error') || message.toLowerCase().includes('invalid');
+                }
+                
+                if (isErrorMessage) {
+                    showErrorAlert(message);
+                } else {
+                    showSuccessAlert(message);
+                }
+            } else {
+                // Fallback: Check URL parameters for success messages
+                console.log('No session message found, checking URL parameters');
+                            
+                const urlParams = new URLSearchParams(window.location.search);
+                const successParam = urlParams.get('auth_success');
+                const errorParam = urlParams.get('auth_error');
+                            
+                console.log('URL success param:', successParam);
+                console.log('URL error param:', errorParam);
+                            
+                if (successParam) {
+                    showSuccessAlert(decodeURIComponent(successParam));
+                    // Remove the parameter from URL
+                    urlParams.delete('auth_success');
+                    const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
+                    window.history.replaceState({}, document.title, newUrl);
+                } else if (errorParam) {
+                    showErrorAlert(decodeURIComponent(errorParam));
+                    // Remove the parameter from URL
+                    urlParams.delete('auth_error');
+                    const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
+                    window.history.replaceState({}, document.title, newUrl);
+                }
+            }
+            
             if (registerErrors.length > 0) {
                 switchTab('register');
+                showErrorAlert('Please fix the registration errors below');
             } else if (loginErrors.length > 0) {
+                switchTab('login');
+                showErrorAlert('Please fix the login errors below');
+            } else {
+                // Default to login tab
                 switchTab('login');
             }
         });
