@@ -42,10 +42,24 @@ Creates 100 users total:
 php artisan db:seed
 ```
 
-**🧪 Test Credentials:**
+**🧪 Test Credentials (11 Total Users):**
+
+**Admin User:**
 - Email: `admin@example.com`
 - Password: `password`
 - Username: `admin`
+
+**Sample Test Users:**
+1. Email: `john.doe@example.com` - Password: `password` - Username: `john_doe`
+2. Email: `jane.smith@example.com` - Password: `password` - Username: `jane_smith`
+3. Email: `mike.wilson@example.com` - Password: `password` - Username: `mike_wilson`
+4. Email: `sarah.johnson@example.com` - Password: `password` - Username: `sarah_johnson`
+5. Email: `david.brown@example.com` - Password: `password` - Username: `david_brown`
+6. Email: `lisa.davis@example.com` - Password: `password` - Username: `lisa_davis`
+7. Email: `robert.miller@example.com` - Password: `password` - Username: `robert_miller`
+8. Email: `emily.garcia@example.com` - Password: `password` - Username: `emily_garcia`
+9. Email: `james.rodriguez@example.com` - Password: `password` - Username: `james_rodriguez`
+10. Email: `mary.martinez@example.com` - Password: `password` - Username: `mary_martinez`
 
 ### 3️⃣ Authentication Scaffolding (Laravel Breeze)
 
@@ -153,9 +167,25 @@ Configured in `app/Http/Controllers/Auth/AuthenticatedSessionController.php` to 
 
 1. Visit the homepage
 2. Click "Log in" or "Register"
-3. Use test credentials:
+3. Use any of the test credentials:
+   
+   **Admin User:**
    - Email: `admin@example.com`
    - Password: `password`
+   
+   **Sample Users (any of these 10):**
+   - john.doe@example.com
+   - jane.smith@example.com
+   - mike.wilson@example.com
+   - sarah.johnson@example.com
+   - david.brown@example.com
+   - lisa.davis@example.com
+   - robert.miller@example.com
+   - emily.garcia@example.com
+   - james.rodriguez@example.com
+   - mary.martinez@example.com
+   
+   **All passwords:** `password`
 4. You will be redirected to `/dashboard`
 5. View your user information and system statistics
 
@@ -171,43 +201,153 @@ Configured in `app/Http/Controllers/Auth/AuthenticatedSessionController.php` to 
 
 ## 📁 Project Structure
 ```
-laravel-app/
+LaravelDashboard/
 ├── app/
-│   ├── Http/Controllers/
-│   │   ├── Auth/ (Breeze generated)
-│   │   ├── DashboardController.php
-│   │   └── ProfileController.php
-│   └── Models/User.php
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Auth/
+│   │   │   │   ├── AuthenticatedSessionController.php
+│   │   │   │   ├── ConfirmablePasswordController.php
+│   │   │   │   ├── EmailVerificationNotificationController.php
+│   │   │   │   ├── EmailVerificationPromptController.php
+│   │   │   │   ├── NewPasswordController.php
+│   │   │   │   ├── PasswordController.php
+│   │   │   │   ├── PasswordResetLinkController.php
+│   │   │   │   ├── RegisteredUserController.php
+│   │   │   │   └── VerifyEmailController.php
+│   │   │   ├── Controller.php
+│   │   │   ├── DashboardController.php
+│   │   │   └── ProfileController.php
+│   │   └── Requests/
+│   │       ├── Auth/
+│   │       │   └── LoginRequest.php
+│   │       └── ProfileUpdateRequest.php
+│   ├── Models/
+│   │   └── User.php
+│   ├── Providers/
+│   │   └── AppServiceProvider.php
+│   └── View/
+│       ├── AppLayout.php
+│       └── GuestLayout.php
+├── bootstrap/
+│   ├── app.php
+│   ├── cache/
+│   └── providers.php
+├── config/
+│   ├── app.php
+│   ├── auth.php
+│   ├── cache.php
+│   ├── database.php
+│   ├── filesystems.php
+│   ├── logging.php
+│   ├── mail.php
+│   ├── queue.php
+│   ├── services.php
+│   └── session.php
 ├── database/
-│   ├── factories/UserFactory.php
+│   ├── factories/
+│   │   └── UserFactory.php
 │   ├── migrations/
-│   │   └── 2026_02_05_023807_add_username_and_fields_to_users_table.php
-│   └── seeders/
-│       ├── DatabaseSeeder.php
-│       └── UserSeeder.php
+│   │   ├── 0001_01_01_000000_create_users_table.php
+│   │   ├── 0001_01_01_000001_create_cache_table.php
+│   │   ├── 0001_01_01_000002_create_jobs_table.php
+│   │   ├── 2026_02_05_023807_add_username_and_fields_to_users_table.php
+│   │   └── 2026_02_05_181245_create_sessions_table.php
+│   ├── seeders/
+│   │   ├── DatabaseSeeder.php
+│   │   └── UserSeeder.php
+│   └── .gitignore
+├── public/
+│   ├── .htaccess
+│   ├── favicon.ico
+│   ├── index.php
+│   └── robots.txt
 ├── resources/
-│   ├── views/
-│   │   ├── auth/ (Breeze generated)
-│   │   ├── dashboard.blade.php
-│   │   ├── layouts/app.blade.php
-│   │   └── profile/ (Breeze generated)
-│   ├── css/app.css
-│   └── js/app.js
+│   ├── css/
+│   │   └── app.css
+│   ├── js/
+│   │   ├── app.js
+│   │   └── bootstrap.js
+│   └── views/
+│       ├── auth/
+│       │   ├── confirm-password.blade.php
+│       │   ├── forgot-password.blade.php
+│       │   ├── login.blade.php
+│       │   ├── register.blade.php
+│       │   ├── reset-password.blade.php
+│       │   ├── verify-email.blade.php
+│       │   └── welcome.blade.php
+│       ├── components/
+│       │   ├── application-logo.blade.php
+│       │   ├── auth-session-status.blade.php
+│       │   ├── danger-button.blade.php
+│       │   ├── dropdown-link.blade.php
+│       │   ├── dropdown.blade.php
+│       │   ├── input-error.blade.php
+│       │   ├── input-label.blade.php
+│       │   ├── modal.blade.php
+│       │   ├── nav-link.blade.php
+│       │   ├── primary-button.blade.php
+│       │   ├── responsive-nav-link.blade.php
+│       │   ├── secondary-button.blade.php
+│       │   └── text-input.blade.php
+│       ├── dashboard.blade.php
+│       ├── layouts/
+│       │   ├── app.blade.php
+│       │   ├── guest.blade.php
+│       │   └── navigation.blade.php
+│       ├── profile/
+│       │   ├── edit.blade.php
+│       │   └── partials/
+│       │       ├── delete-user-form.blade.php
+│       │       ├── update-password-form.blade.php
+│       │       └── update-profile-information-form.blade.php
+│       └── welcome.blade.php
 ├── routes/
 │   ├── auth.php
+│   ├── console.php
 │   └── web.php
+├── storage/
+│   ├── app/
+│   │   ├── private/
+│   │   ├── public/
+│   │   └── .gitignore
+│   ├── framework/
+│   │   ├── cache/
+│   │   ├── sessions/
+│   │   ├── testing/
+│   │   ├── views/
+│   │   └── .gitignore
+│   ├── logs/
+│   └── .gitignore
+├── tests/
+│   ├── Feature/
+│   │   ├── Auth/
+│   │   │   ├── AuthenticationTest.php
+│   │   │   ├── EmailVerificationTest.php
+│   │   │   ├── PasswordConfirmationTest.php
+│   │   │   ├── PasswordResetTest.php
+│   │   │   ├── PasswordUpdateTest.php
+│   │   │   └── RegistrationTest.php
+│   │   ├── ExampleTest.php
+│   │   └── ProfileTest.php
+│   ├── Unit/
+│   │   └── ExampleTest.php
+│   ├── Pest.php
+│   └── TestCase.php
 ├── .env
+├── .gitattributes
+├── .gitignore
+├── artisan
 ├── composer.json
-└── package.json
+├── composer.lock
+├── package-lock.json
+├── package.json
+├── phpunit.xml
+├── postcss.config.js
+├── tailwind.config.js
+└── vite.config.js
 ```
-
-## 📝 Important Notes
-
-- **Do not include** `node_modules/` and `vendor/` folders in submission
-- **Include** the `composer.lock` and `package-lock.json` files
-- All migrations should be included
-- The `.env` file should be included but with sensitive data removed
-- Database should be seeded before demonstration
 
 ## 🔧 Troubleshooting
 
@@ -217,17 +357,6 @@ laravel-app/
 - Database connection errors: Check `.env` database configuration
 - Assets not loading: Run `npm install` and `npm run dev`
 - Migration errors: Ensure database exists and is accessible
-
-## 🏆 Grading Criteria Addressed
-
-This implementation addresses all university rubric requirements:
-- ✅ **Excellent Code Quality:** Clean, readable code with proper comments
-- ✅ **Best Practices:** Follows Laravel conventions and folder structure
-- ✅ **Complete Functionality:** All required features implemented
-- ✅ **Proper Documentation:** Clear README with setup instructions
-- ✅ **Academic Standards:** Well-organized, professional presentation
-
----
 
 **Developed for Educational Purposes**
 *This application demonstrates Laravel authentication, migrations, factories, seeders, and MVC architecture.*

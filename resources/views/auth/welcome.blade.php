@@ -18,96 +18,96 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         
-        <div class="min-h-screen flex">
+        <div class="h-screen flex overflow-hidden">
             <!-- Left Panel - Welcome Animation -->
-            <div class="flex-1 bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+            <div class="flex-1 bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-6 lg:p-8 relative overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-600/10"></div>
                 
-                <div class="relative z-10 text-center max-w-2xl">
-                    <div class="mb-12">
-                        <div class="inline-block p-6 rounded-full bg-white/20 backdrop-blur-sm shadow-2xl mb-8 animate-pulse">
-                            <div class="h-24 w-24 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center shadow-xl">
-                                <i class="fas fa-chart-line text-white text-4xl"></i>
+                <div class="relative z-10 text-center max-w-2xl flex flex-col h-full">
+                    <div class="flex-shrink-0 mb-6 mt-4">
+                        <div class="inline-block p-4 rounded-full bg-white/20 backdrop-blur-sm shadow-2xl mb-6 animate-pulse">
+                            <div class="h-16 w-16 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center shadow-xl">
+                                <i class="fas fa-chart-line text-white text-2xl"></i>
                             </div>
                         </div>
                         
-                        <h1 class="text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
+                        <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-3 tracking-tight leading-tight">
                             Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">DashboardPro</span>
                         </h1>
                         
-                        <p class="text-2xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
+                        <p class="text-base lg:text-lg text-gray-700 mb-6 leading-relaxed max-w-2xl mx-auto">
                             Laravel Migrations, Factories, Seeders, Routes,
                             Views, and Authentication Scaffolding using Breeze
                         </p>
                     </div>
                     
                     <!-- Animated Elements -->
-                    <div class="flex justify-center space-x-6 mb-12">
-                        <div class="w-4 h-4 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0ms"></div>
-                        <div class="w-4 h-4 bg-indigo-500 rounded-full animate-bounce" style="animation-delay: 300ms"></div>
-                        <div class="w-4 h-4 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 600ms"></div>
+                    <div class="flex justify-center space-x-4 mb-6 flex-shrink-0">
+                        <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0ms"></div>
+                        <div class="w-3 h-3 bg-indigo-500 rounded-full animate-bounce" style="animation-delay: 300ms"></div>
+                        <div class="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 600ms"></div>
                     </div>
                     
                     <!-- Feature Highlights -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fas fa-database text-blue-600 text-2xl mb-3"></i>
-                            <h3 class="font-bold text-xl text-gray-800 mb-2">Database Migrations</h3>
-                            <p class="text-gray-600">Modify database schema using Laravel migrations</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 flex-grow overflow-y-auto py-2 px-2">
+                        <div class="bg-white/40 backdrop-blur-sm rounded-lg p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+                            <i class="fas fa-database text-blue-600 text-xl mb-2"></i>
+                            <h3 class="font-bold text-sm text-gray-800 mb-1">Database Migrations</h3>
+                            <p class="text-gray-600 text-xs flex-grow">Modify database schema using Laravel migrations</p>
                         </div>
-                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fas fa-seedling text-green-600 text-2xl mb-3"></i>
-                            <h3 class="font-bold text-xl text-gray-800 mb-2">Data Population</h3>
-                            <p class="text-gray-600">Populate database tables using factories and seeders</p>
+                        <div class="bg-white/40 backdrop-blur-sm rounded-lg p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+                            <i class="fas fa-seedling text-green-600 text-xl mb-2"></i>
+                            <h3 class="font-bold text-sm text-gray-800 mb-1">Data Population</h3>
+                            <p class="text-gray-600 text-xs flex-grow">Populate database tables using factories and seeders</p>
                         </div>
-                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fas fa-key text-indigo-600 text-2xl mb-3"></i>
-                            <h3 class="font-bold text-xl text-gray-800 mb-2">Authentication</h3>
-                            <p class="text-gray-600">Implement authentication using Laravel Breeze</p>
+                        <div class="bg-white/40 backdrop-blur-sm rounded-lg p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+                            <i class="fas fa-key text-indigo-600 text-xl mb-2"></i>
+                            <h3 class="font-bold text-sm text-gray-800 mb-1">Authentication</h3>
+                            <p class="text-gray-600 text-xs flex-grow">Implement authentication using Laravel Breeze</p>
                         </div>
-                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fas fa-directions text-orange-600 text-2xl mb-3"></i>
-                            <h3 class="font-bold text-xl text-gray-800 mb-2">Routing</h3>
-                            <p class="text-gray-600">Configure routes and redirects after authentication</p>
+                        <div class="bg-white/40 backdrop-blur-sm rounded-lg p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+                            <i class="fas fa-directions text-orange-600 text-xl mb-2"></i>
+                            <h3 class="font-bold text-sm text-gray-800 mb-1">Routing</h3>
+                            <p class="text-gray-600 text-xs flex-grow">Configure routes and redirects after authentication</p>
                         </div>
-                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fas fa-desktop text-purple-600 text-2xl mb-3"></i>
-                            <h3 class="font-bold text-xl text-gray-800 mb-2">Dashboard</h3>
-                            <p class="text-gray-600">Design a basic dashboard view using a frontend template framework</p>
+                        <div class="bg-white/40 backdrop-blur-sm rounded-lg p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+                            <i class="fas fa-desktop text-purple-600 text-xl mb-2"></i>
+                            <h3 class="font-bold text-sm text-gray-800 mb-1">Dashboard</h3>
+                            <p class="text-gray-600 text-xs flex-grow">Design a basic dashboard view using a frontend template framework</p>
                         </div>
-                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fas fa-graduation-cap text-red-600 text-2xl mb-3"></i>
-                            <h3 class="font-bold text-xl text-gray-800 mb-2">Project Description</h3>
-                            <p class="text-gray-600">Students are expected to demonstrate proper use of Laravel conventions and best practices.</p>
+                        <div class="bg-white/40 backdrop-blur-sm rounded-lg p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+                            <i class="fas fa-graduation-cap text-red-600 text-xl mb-2"></i>
+                            <h3 class="font-bold text-sm text-gray-800 mb-1">Project Description</h3>
+                            <p class="text-gray-600 text-xs flex-grow">Students are expected to demonstrate proper use of Laravel conventions and best practices.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Right Panel - Authentication -->
-            <div class="w-full lg:w-2/5 xl:w-2/5 flex items-center justify-center bg-white p-8 lg:p-16">
-                <div class="w-full max-w-md">
+            <div class="w-full lg:w-2/5 xl:w-2/5 flex items-center justify-center bg-white p-6 lg:p-8">
+                <div class="w-full max-w-md flex flex-col h-full max-h-full">
             <!-- Authentication Header -->
-            <div class="text-center mb-6">
-                <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center mb-4 shadow-lg">
-                    <i class="fas fa-user-circle text-white text-2xl"></i>
+            <div class="text-center mb-4 flex-shrink-0">
+                <div class="mx-auto h-12 w-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center mb-3 shadow-lg">
+                    <i class="fas fa-user-circle text-white text-xl"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">Account Access</h2>
-                <p class="text-gray-600">Sign in or create an account</p>
+                <h2 class="text-xl font-bold text-gray-900 mb-1">Account Access</h2>
+                <p class="text-gray-600 text-sm">Sign in or create an account</p>
             </div>
 
             <!-- Toggle Buttons -->
-            <div class="flex bg-white rounded-lg shadow-sm p-1 mb-4">
+            <div class="flex bg-white rounded-lg shadow-sm p-1 mb-3 flex-shrink-0">
                 <button 
                     id="login-tab" 
-                    class="flex-1 py-2 px-4 text-center font-medium rounded-md transition-all duration-200 active-tab"
+                    class="flex-1 py-2 px-3 text-center text-sm font-medium rounded-md transition-all duration-200 active-tab"
                     onclick="switchTab('login')"
                 >
                     Login
                 </button>
                 <button 
                     id="register-tab" 
-                    class="flex-1 py-2 px-4 text-center font-medium rounded-md transition-all duration-200 inactive-tab"
+                    class="flex-1 py-2 px-3 text-center text-sm font-medium rounded-md transition-all duration-200 inactive-tab"
                     onclick="switchTab('register')"
                 >
                     Register
@@ -127,61 +127,63 @@
             @endif
 
             <!-- Login Form -->
-            <div id="login-form" class="bg-white py-6 px-6 shadow-xl rounded-lg transition-all duration-300 ease-in-out" style="min-height: 420px;">
-                <form method="POST" action="{{ route('login') }}" class="space-y-4">
+            <div id="login-form" class="bg-white py-4 px-4 shadow-xl rounded-lg transition-all duration-300 ease-in-out flex-grow flex flex-col" style="min-height: 320px;">
+                <form method="POST" action="{{ route('login') }}" class="space-y-3 flex-grow flex flex-col">
                     @csrf
                     
-                    <div class="mb-3">
-                        <x-input-label for="login-email" :value="__('Email')" class="text-gray-700 font-medium text-sm" />
-                        <x-text-input 
-                            id="login-email" 
-                            class="block mt-1 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500 text-sm" 
-                            type="email" 
-                            name="email" 
-                            :value="old('email')" 
-                            required 
-                            autofocus 
-                            autocomplete="username" 
-                            placeholder="Enter your email"
-                        />
-                        <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-600 text-sm" />
+                    <div class="flex-grow flex flex-col justify-center">
+                        <div class="mb-3">
+                            <x-input-label for="login-email" :value="__('Email')" class="text-gray-700 font-medium text-xs" />
+                            <x-text-input 
+                                id="login-email" 
+                                class="block mt-1 w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500 text-xs" 
+                                type="email" 
+                                name="email" 
+                                :value="old('email')" 
+                                required 
+                                autofocus 
+                                autocomplete="username" 
+                                placeholder="Enter your email"
+                            />
+                            <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-600 text-xs" />
+                        </div>
+
+                        <div class="mb-3">
+                            <x-input-label for="login-password" :value="__('Password')" class="text-gray-700 font-medium text-xs" />
+                            <x-text-input 
+                                id="login-password" 
+                                class="block mt-1 w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500 text-xs" 
+                                type="password" 
+                                name="password" 
+                                required 
+                                autocomplete="current-password" 
+                                placeholder="Enter your password"
+                            />
+                            <x-input-error :messages="$errors->get('password')" class="mt-1 text-red-600 text-xs" />
+                        </div>
                     </div>
 
-                    <div>
-                        <x-input-label for="login-password" :value="__('Password')" class="text-gray-700 font-medium" />
-                        <x-text-input 
-                            id="login-password" 
-                            class="block mt-1 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500" 
-                            type="password" 
-                            name="password" 
-                            required 
-                            autocomplete="current-password" 
-                            placeholder="Enter your password"
-                        />
-                        <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-600" />
-                    </div>
-
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-between flex-shrink-0">
                         <label for="remember_me" class="flex items-center">
                             <input 
                                 id="remember_me" 
                                 type="checkbox" 
-                                class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500" 
+                                class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500 h-3 w-3" 
                                 name="remember"
                             >
-                            <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                            <span class="ms-1 text-xs text-gray-600">{{ __('Remember me') }}</span>
                         </label>
                         
                         @if (Route::has('password.request'))
-                            <a class="text-sm text-blue-600 hover:text-blue-800 font-medium" href="{{ route('password.request') }}">
-                                {{ __('Forgot password?') }}
+                            <a class="text-xs text-blue-600 hover:text-blue-800 font-medium" href="{{ route('password.request') }}">
+                                {{ __('Forgot?') }}
                             </a>
                         @endif
                     </div>
 
                     <button 
                         type="submit" 
-                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 transform hover:scale-[1.02]"
+                        class="w-full flex justify-center py-2 px-3 border border-transparent rounded-md shadow-sm text-xs font-semibold text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 transform hover:scale-[1.02] flex-shrink-0"
                     >
                         {{ __('Sign In') }}
                     </button>
@@ -189,72 +191,74 @@
             </div>
 
             <!-- Register Form -->
-            <div id="register-form" class="bg-white py-6 px-6 shadow-xl rounded-lg hidden transition-all duration-300 ease-in-out" style="min-height: 420px;">
-                <form method="POST" action="{{ route('register') }}" class="space-y-4">
+            <div id="register-form" class="bg-white py-4 px-4 shadow-xl rounded-lg hidden transition-all duration-300 ease-in-out flex-grow flex flex-col" style="min-height: 320px;">
+                <form method="POST" action="{{ route('register') }}" class="space-y-3 flex-grow flex flex-col">
                     @csrf
                     
-                    <div>
-                        <x-input-label for="register-name" :value="__('Full Name')" class="text-gray-700 font-medium" />
-                        <x-text-input 
-                            id="register-name" 
-                            class="block mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500" 
-                            type="text" 
-                            name="name" 
-                            :value="old('name')" 
-                            required 
-                            autofocus 
-                            autocomplete="name" 
-                            placeholder="Enter your full name"
-                        />
-                        <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-600" />
-                    </div>
+                    <div class="flex-grow overflow-y-auto">
+                        <div class="mb-2">
+                            <x-input-label for="register-name" :value="__('Full Name')" class="text-gray-700 font-medium text-xs" />
+                            <x-text-input 
+                                id="register-name" 
+                                class="block mt-1 w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500 text-xs" 
+                                type="text" 
+                                name="name" 
+                                :value="old('name')" 
+                                required 
+                                autofocus 
+                                autocomplete="name" 
+                                placeholder="Enter your full name"
+                            />
+                            <x-input-error :messages="$errors->get('name')" class="mt-1 text-red-600 text-xs" />
+                        </div>
 
-                    <div>
-                        <x-input-label for="register-email" :value="__('Email')" class="text-gray-700 font-medium" />
-                        <x-text-input 
-                            id="register-email" 
-                            class="block mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500" 
-                            type="email" 
-                            name="email" 
-                            :value="old('email')" 
-                            required 
-                            autocomplete="username" 
-                            placeholder="Enter your email"
-                        />
-                        <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-600" />
-                    </div>
+                        <div class="mb-2">
+                            <x-input-label for="register-email" :value="__('Email')" class="text-gray-700 font-medium text-xs" />
+                            <x-text-input 
+                                id="register-email" 
+                                class="block mt-1 w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500 text-xs" 
+                                type="email" 
+                                name="email" 
+                                :value="old('email')" 
+                                required 
+                                autocomplete="username" 
+                                placeholder="Enter your email"
+                            />
+                            <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-600 text-xs" />
+                        </div>
 
-                    <div>
-                        <x-input-label for="register-password" :value="__('Password')" class="text-gray-700 font-medium" />
-                        <x-text-input 
-                            id="register-password" 
-                            class="block mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500" 
-                            type="password" 
-                            name="password" 
-                            required 
-                            autocomplete="new-password" 
-                            placeholder="Create a password"
-                        />
-                        <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-600" />
-                    </div>
+                        <div class="mb-2">
+                            <x-input-label for="register-password" :value="__('Password')" class="text-gray-700 font-medium text-xs" />
+                            <x-text-input 
+                                id="register-password" 
+                                class="block mt-1 w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500 text-xs" 
+                                type="password" 
+                                name="password" 
+                                required 
+                                autocomplete="new-password" 
+                                placeholder="Create a password"
+                            />
+                            <x-input-error :messages="$errors->get('password')" class="mt-1 text-red-600 text-xs" />
+                        </div>
 
-                    <div>
-                        <x-input-label for="register-password_confirmation" :value="__('Confirm Password')" class="text-gray-700 font-medium" />
-                        <x-text-input 
-                            id="register-password_confirmation" 
-                            class="block mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500" 
-                            type="password" 
-                            name="password_confirmation" 
-                            required 
-                            autocomplete="new-password" 
-                            placeholder="Confirm your password"
-                        />
-                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-red-600" />
+                        <div>
+                            <x-input-label for="register-password_confirmation" :value="__('Confirm Password')" class="text-gray-700 font-medium text-xs" />
+                            <x-text-input 
+                                id="register-password_confirmation" 
+                                class="block mt-1 w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm transition duration-200 bg-white text-gray-700 placeholder-gray-500 text-xs" 
+                                type="password" 
+                                name="password_confirmation" 
+                                required 
+                                autocomplete="new-password" 
+                                placeholder="Confirm your password"
+                            />
+                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-1 text-red-600 text-xs" />
+                        </div>
                     </div>
 
                     <button 
                         type="submit" 
-                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 transform hover:scale-[1.02]"
+                        class="w-full flex justify-center py-2 px-3 border border-transparent rounded-md shadow-sm text-xs font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 transform hover:scale-[1.02] flex-shrink-0"
                     >
                         {{ __('Create Account') }}
                     </button>
@@ -262,17 +266,17 @@
             </div>
 
             <!-- Footer Links -->
-            <div class="text-center text-sm text-gray-600">
+            <div class="text-center text-xs text-gray-600 mt-3 flex-shrink-0">
                 <p id="footer-text-login" class="block">
-                    Don't have an account? 
+                    No account? 
                     <button onclick="switchTab('register')" class="text-blue-600 hover:text-blue-800 font-medium underline">
-                        Register here
+                        Register
                     </button>
                 </p>
                 <p id="footer-text-register" class="hidden">
-                    Already have an account? 
+                    Have account? 
                     <button onclick="switchTab('login')" class="text-blue-600 hover:text-blue-800 font-medium underline">
-                        Sign in here
+                        Sign in
                     </button>
                 </p>
             </div>
@@ -356,7 +360,7 @@
             setTimeout(() => {
                 if (tab === 'login') {
                     // Show login form
-                    loginForm.style.display = 'block';
+                    loginForm.style.display = 'flex';
                     registerForm.style.display = 'none';
                     
                     loginTab.classList.remove('inactive-tab');
@@ -365,7 +369,7 @@
                     footerLogin.style.display = 'block';
                 } else {
                     // Show register form
-                    registerForm.style.display = 'block';
+                    registerForm.style.display = 'flex';
                     loginForm.style.display = 'none';
                     
                     registerTab.classList.remove('inactive-tab');
@@ -513,6 +517,25 @@
         .inactive-tab:hover {
             background: #f9fafb;
             color: #1f2937;
+        }
+        
+        /* Custom scrollbar for feature cards */
+        .overflow-y-auto::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .overflow-y-auto::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+        
+        .overflow-y-auto::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 3px;
+        }
+        
+        .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+            background: rgba(59, 130, 246, 0.5);
         }
     </style>
                 </div>
