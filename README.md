@@ -42,24 +42,20 @@ Creates 100 users total:
 php artisan db:seed
 ```
 
-**🧪 Test Credentials (11 Total Users):**
+**🧪 Test Credentials:**
 
 **Admin User:**
 - Email: `admin@example.com`
 - Password: `password`
 - Username: `admin`
 
-**Sample Test Users:**
-1. Email: `john.doe@example.com` - Password: `password` - Username: `john_doe`
-2. Email: `jane.smith@example.com` - Password: `password` - Username: `jane_smith`
-3. Email: `mike.wilson@example.com` - Password: `password` - Username: `mike_wilson`
-4. Email: `sarah.johnson@example.com` - Password: `password` - Username: `sarah_johnson`
-5. Email: `david.brown@example.com` - Password: `password` - Username: `david_brown`
-6. Email: `lisa.davis@example.com` - Password: `password` - Username: `lisa_davis`
-7. Email: `robert.miller@example.com` - Password: `password` - Username: `robert_miller`
-8. Email: `emily.garcia@example.com` - Password: `password` - Username: `emily_garcia`
-9. Email: `james.rodriguez@example.com` - Password: `password` - Username: `james_rodriguez`
-10. Email: `mary.martinez@example.com` - Password: `password` - Username: `mary_martinez`
+**Sample Users from Database (password is `password` for all):**
+- jenkins.aimee@example.com
+- rudolph31@example.net
+- callie.carroll@example.org
+- kohler.emery@example.com
+- cheyenne88@example.com
+- (Plus 95 other randomly generated users)
 
 ### 3️⃣ Authentication Scaffolding (Laravel Breeze)
 
@@ -173,19 +169,17 @@ Configured in `app/Http/Controllers/Auth/AuthenticatedSessionController.php` to 
    - Email: `admin@example.com`
    - Password: `password`
    
-   **Sample Users (any of these 10):**
-   - john.doe@example.com
-   - jane.smith@example.com
-   - mike.wilson@example.com
-   - sarah.johnson@example.com
-   - david.brown@example.com
-   - lisa.davis@example.com
-   - robert.miller@example.com
-   - emily.garcia@example.com
-   - james.rodriguez@example.com
-   - mary.martinez@example.com
+   **Sample Users (use any email from the database):**
+   All users have the password: `password`
    
-   **All passwords:** `password`
+   Some sample emails from the seeded database:
+   - jenkins.aimee@example.com
+   - rudolph31@example.net
+   - callie.carroll@example.org
+   - kohler.emery@example.com
+   - cheyenne88@example.com
+   
+   *(There are 100 total users in the database)*
 4. You will be redirected to `/dashboard`
 5. View your user information and system statistics
 
