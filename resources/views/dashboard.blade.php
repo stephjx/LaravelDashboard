@@ -4,6 +4,9 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
+    
+    <!-- SweetAlert2 for notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <div class="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden hide-scrollbar">
         <div class="max-w-none mx-0 w-full relative z-10">
@@ -196,6 +199,32 @@
     </div>
 
     <script>
+        // SweetAlert2 Notification Functions
+        function showSuccessAlert(message) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: message,
+                timer: 3000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                toast: true,
+                position: 'top-end'
+            });
+        }
+        
+        function showErrorAlert(message) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: message,
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: true,
+                confirmButtonText: 'OK'
+            });
+        }
+        
         function showLastLogin() {
             const loginInfo = document.getElementById('last-login-info');
             if (loginInfo.classList.contains('hidden')) {
@@ -204,5 +233,26 @@
                 loginInfo.classList.add('hidden');
             }
         }
+        
+        // Check for auth success/error messages on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const successParam = urlParams.get('auth_success');
+            const errorParam = urlParams.get('auth_error');
+            
+            if (successParam) {
+                showSuccessAlert(decodeURIComponent(successParam));
+                // Remove the parameter from URL
+                urlParams.delete('auth_success');
+                const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
+                window.history.replaceState({}, document.title, newUrl);
+            } else if (errorParam) {
+                showErrorAlert(decodeURIComponent(errorParam));
+                // Remove the parameter from URL
+                urlParams.delete('auth_error');
+                const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
+                window.history.replaceState({}, document.title, newUrl);
+            }
+        });
     </script>
 </x-app-layout>
